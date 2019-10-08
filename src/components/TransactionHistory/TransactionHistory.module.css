@@ -1,0 +1,16 @@
+.history {
+  width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px #9ca0a5;
+}
+
+.theadTitle {
+  background-color: #c6cbcf;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #272727;
+  text-align: center;
+  line-height: 70px;
+}

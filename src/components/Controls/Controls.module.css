@@ -1,0 +1,30 @@
+.container {
+  min-height: 150px;
+  background-color: #062c56;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+input {
+  width: 270px;
+  height: 40px;
+  border-radius: 10px;
+  margin-right: 20px;
+  outline: none;
+  font-size: 20px;
+  border: none;
+}
+
+button {
+  width: 186px;
+  height: 50px;
+  margin-right: 20px;
+  background-color: #3884ff;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+}

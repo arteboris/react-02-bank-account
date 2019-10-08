@@ -1,0 +1,11 @@
+.balance {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+span {
+  margin-right: 50px;
+  color: #5c6975;
+}
