@@ -1,9 +1,19 @@
-/* eslint-disable no-alert */
 import React, { Component } from 'react';
 import shortid from 'shortid';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Controls from '../Controls/Controls';
 import Balance from '../Balance/Balance';
 import TransactionHistory from '../TransactionHistory/TransactionHistory';
+
+toast.configure({
+  position: 'top-center',
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+});
 
 export default class Dashboard extends Component {
   state = {
@@ -32,6 +42,7 @@ export default class Dashboard extends Component {
       date: new Date().toLocaleString(),
     };
     if (amount > 0) {
+      toast.success('Операция успешна');
       this.setState({
         balance: balance + transaction.amount,
         transactions: [...transactions, transaction],
@@ -39,7 +50,7 @@ export default class Dashboard extends Component {
       this.income();
       this.resetAmount();
     } else {
-      alert('Введите сумму больше нуля для проведения операции!');
+      toast.warning('Введите сумму больше нуля для проведения операции!');
       this.resetAmount();
     }
   };
@@ -53,16 +64,17 @@ export default class Dashboard extends Component {
       date: new Date().toLocaleString(),
     };
     if (amount <= 0) {
-      alert('Введите сумму больше нуля для проведения операции!');
+      toast.warning('Введите сумму больше нуля для проведения операции!');
       this.resetAmount();
     } else if (balance < amount) {
-      alert('На счету недостаточно средств для проведения операции!');
+      toast.error('На счету недостаточно средств для проведения операции!');
       this.resetAmount();
     } else {
       this.setState({
         balance: balance - transaction.amount,
         transactions: [...transactions, transaction],
       });
+      toast.success('Операция успешна');
       this.expenses();
       this.resetAmount();
     }
